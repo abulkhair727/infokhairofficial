@@ -112,7 +112,33 @@
   --sidebar-ring: oklch(0.72 0.15 200);
 }
 
-@layer base {
+.light {
+  --background: oklch(0.97 0.005 240);
+  --foreground: oklch(0.15 0.02 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.02 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 250);
+  --primary: oklch(0.55 0.18 210);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.94 0.01 240);
+  --secondary-foreground: oklch(0.2 0.02 250);
+  --muted: oklch(0.93 0.008 240);
+  --muted-foreground: oklch(0.45 0.03 250);
+  --accent: oklch(0.94 0.01 240);
+  --accent-foreground: oklch(0.15 0.02 250);
+  --border: oklch(0.85 0.01 240);
+  --input: oklch(0.88 0.01 240);
+  --ring: oklch(0.55 0.18 210);
+  --cyan: oklch(0.55 0.18 210);
+  --cyan-glow: oklch(0.55 0.18 210 / 25%);
+  --gold: oklch(0.6 0.15 85);
+  --purple-accent: oklch(0.5 0.2 300);
+  --green-accent: oklch(0.5 0.18 150);
+  --surface: oklch(0.93 0.005 240);
+}
+
+
   * {
     border-color: var(--color-border);
   }
@@ -122,6 +148,12 @@
     color: var(--color-foreground);
     font-family: var(--font-display);
     min-height: 100vh;
+    transition: background 0.4s, color 0.4s;
+  }
+
+  .light body {
+    background: oklch(0.96 0.01 240);
+    color: oklch(0.15 0.02 250);
   }
 
   ::-webkit-scrollbar { width: 4px; }

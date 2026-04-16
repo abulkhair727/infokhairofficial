@@ -1,4 +1,25 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, createContext, useContext } from "react";
+
+const ThemeContext = createContext<{ dark: boolean; toggle: () => void }>({ dark: true, toggle: () => {} });
+
+export function useTheme() {
+  return useContext(ThemeContext);
+}
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [dark, setDark] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+    document.documentElement.classList.toggle("light", !dark);
+  }, [dark]);
+
+  return (
+    <ThemeContext.Provider value={{ dark, toggle: () => setDark((d) => !d) }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
 
 const navLinks = [
   { label: "About Me", icon: "👤", href: "#about" },
@@ -12,6 +33,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const { dark, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -75,6 +97,15 @@ export default function Navbar() {
           </div>
         )}
       </div>
+
+      {/* Theme toggle */}
+      <button
+        onClick={toggle}
+        className="rounded-full border border-primary/40 bg-primary/12 px-3.5 py-2 text-base transition-all hover:bg-primary/25 hover:shadow-[0_0_14px_oklch(0.72_0.15_200/30%)]"
+        title={dark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+      >
+        {dark ? "🌙" : "☀️"}
+      </button>
     </nav>
   );
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import profileImg from "@/assets/profile.jpg";
 
 const phrases = ["Graphic Designer 🎨", "Web Developer 💻", "Ethical Hacker 🔐", "Creative Thinker ✨"];
 
@@ -58,7 +59,7 @@ export default function HeroSection() {
         <div className="animate-spin-slow absolute top-1/2 left-1/2 h-[170px] w-[170px] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-primary/35" />
         <div className="mx-auto h-[150px] w-[150px] rounded-full border-[3px] border-primary p-[5px] shadow-[0_0_40px_oklch(0.72_0.15_200/50%),0_0_80px_oklch(0.72_0.15_200/15%)] mt-[10px]">
           <img
-            src="https://ui-avatars.com/api/?name=Abul+Khair&background=0a2540&color=00bfff&size=150"
+            src={profileImg}
             alt="MD. Abul Khair"
             className="h-full w-full rounded-full object-cover"
           />
