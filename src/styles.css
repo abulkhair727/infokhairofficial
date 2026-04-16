@@ -138,7 +138,7 @@
   --surface: oklch(0.93 0.005 240);
 }
 
-
+@layer base {
   * {
     border-color: var(--color-border);
   }
@@ -151,14 +151,14 @@
     transition: background 0.4s, color 0.4s;
   }
 
-  .light body {
-    background: oklch(0.96 0.01 240);
-    color: oklch(0.15 0.02 250);
-  }
-
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: oklch(0.05 0.04 250); }
   ::-webkit-scrollbar-thumb { background: var(--color-cyan); border-radius: 4px; }
+}
+
+.light body {
+  background: oklch(0.96 0.01 240);
+  color: oklch(0.15 0.02 250);
 }
 
 @keyframes spin-slow {
