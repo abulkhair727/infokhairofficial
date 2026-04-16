@@ -122,6 +122,12 @@
     color: var(--color-foreground);
     font-family: var(--font-display);
     min-height: 100vh;
+    transition: background 0.4s, color 0.4s;
+  }
+
+  .light body {
+    background: oklch(0.96 0.01 240);
+    color: oklch(0.15 0.02 250);
   }
 
   ::-webkit-scrollbar { width: 4px; }
