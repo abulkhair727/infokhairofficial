@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { FaTelegram, FaYoutube, FaInstagram, FaFacebookF, FaXTwitter } from "react-icons/fa6";
 import profileImg from "@/assets/profile.jpg";
 
 const phrases = ["Graphic Designer 🎨", "Web Developer 💻", "Ethical Hacker 🔐", "Creative Thinker ✨"];
 
 const socials = [
-  { icon: "📨", label: "Telegram", href: "https://t.me/Rx_Khan25" },
-  { icon: "🎬", label: "YouTube", href: "https://youtube.com/@ai_creation_2.0k" },
-  { icon: "📸", label: "Instagram", href: "https://www.instagram.com/abul_khair_77" },
-  { icon: "📘", label: "Facebook", href: "https://www.facebook.com/share/1AqyGnpzVY/" },
-  { icon: "🐦", label: "Twitter", href: "https://x.com/KhanInfo95152" },
+  { icon: FaTelegram, label: "Telegram", href: "https://t.me/Rx_Khan25", color: "#26A5E4" },
+  { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@ai_creation_2.0k", color: "#FF0000" },
+  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/abul_khair_77", color: "#E4405F" },
+  { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/share/1AqyGnpzVY/", color: "#1877F2" },
+  { icon: FaXTwitter, label: "Twitter", href: "https://x.com/KhanInfo95152", color: "#000000" },
 ];
 
 export default function HeroSection() {
@@ -56,13 +57,8 @@ export default function HeroSection() {
         transition={{ duration: 0.8 }}
         className="relative z-10 mx-auto mb-5 h-[210px] w-[210px]"
       >
-        {/* Outer rotating ring — slow, dashed, glowing */}
         <div className="animate-ring-spin absolute inset-[2px] rounded-full border-2 border-dashed border-cyan/50 shadow-[0_0_18px_oklch(0.72_0.15_200/40%),inset_0_0_18px_oklch(0.72_0.15_200/15%)]" />
-
-        {/* Second ring — counter-rotate, dotted, softer */}
         <div className="animate-ring-spin-reverse absolute inset-[6px] rounded-full border border-dotted border-cyan/30 shadow-[0_0_12px_oklch(0.72_0.15_200/25%)]" />
-
-        {/* Third ring — slow, solid partial arc via SVG */}
         <svg className="animate-ring-spin-mid absolute inset-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)]" viewBox="0 0 200 200">
           <defs>
             <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -73,20 +69,10 @@ export default function HeroSection() {
           </defs>
           <circle cx="100" cy="100" r="96" fill="none" stroke="url(#arcGrad)" strokeWidth="2" strokeDasharray="120 80 60 40" strokeLinecap="round" />
         </svg>
-
-        {/* Static glow backdrop */}
         <div className="absolute inset-[15px] rounded-full bg-[radial-gradient(circle,oklch(0.72_0.15_200/10%)_0%,transparent_70%)]" />
-
-        {/* Profile image */}
         <div className="absolute inset-[20px] rounded-full border-[3px] border-primary/60 p-[3px] shadow-[0_0_30px_oklch(0.72_0.15_200/45%),0_0_60px_oklch(0.72_0.15_200/15%),inset_0_0_20px_oklch(0.72_0.15_200/10%)]">
-          <img
-            src={profileImg}
-            alt="MD. Abul Khair"
-            className="h-full w-full rounded-full object-cover"
-          />
+          <img src={profileImg} alt="MD. Abul Khair" className="h-full w-full rounded-full object-cover" />
         </div>
-
-        {/* Corner dots — tech UI feel */}
         <div className="absolute top-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-cyan shadow-[0_0_8px_oklch(0.72_0.15_200/80%)]" />
         <div className="absolute bottom-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-cyan shadow-[0_0_8px_oklch(0.72_0.15_200/80%)]" />
         <div className="absolute left-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-cyan shadow-[0_0_8px_oklch(0.72_0.15_200/80%)]" />
@@ -127,18 +113,21 @@ export default function HeroSection() {
         transition={{ duration: 1.2 }}
         className="relative z-10 mt-5 flex flex-wrap items-center justify-center gap-2.5"
       >
-        {socials.map((s) => (
-          <a
-            key={s.label}
-            href={s.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-foreground/12 px-4 py-2 text-sm text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary hover:shadow-[0_0_15px_oklch(0.72_0.15_200/30%)]"
-          >
-            <span>{s.icon}</span>
-            <span className="text-xs font-medium tracking-wide">{s.label}</span>
-          </a>
-        ))}
+        {socials.map((s) => {
+          const Icon = s.icon;
+          return (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-foreground/12 px-4 py-2 text-sm text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary hover:shadow-[0_0_15px_oklch(0.72_0.15_200/30%)]"
+            >
+              <Icon size={16} style={{ color: s.color }} />
+              <span className="text-xs font-medium tracking-wide">{s.label}</span>
+            </a>
+          );
+        })}
       </motion.div>
     </header>
   );
