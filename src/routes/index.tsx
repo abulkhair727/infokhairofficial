@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ThemeProvider } from "../components/Navbar";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <>
+    <ThemeProvider>
       <Navbar />
       <HeroSection />
       <main className="mx-auto max-w-[900px] px-5 pb-10">
@@ -33,6 +34,6 @@ function Index() {
         <ContactSection />
       </main>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 }
