@@ -54,16 +54,43 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 mx-auto mb-5 w-[170px]"
+        className="relative z-10 mx-auto mb-5 h-[210px] w-[210px]"
       >
-        <div className="animate-spin-slow absolute top-1/2 left-1/2 h-[170px] w-[170px] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-primary/35" />
-        <div className="mx-auto h-[150px] w-[150px] rounded-full border-[3px] border-primary p-[5px] shadow-[0_0_40px_oklch(0.72_0.15_200/50%),0_0_80px_oklch(0.72_0.15_200/15%)] mt-[10px]">
+        {/* Outer rotating ring — slow, dashed, glowing */}
+        <div className="animate-ring-spin absolute inset-0 rounded-full border-2 border-dashed border-cyan/50 shadow-[0_0_18px_oklch(0.72_0.15_200/40%),inset_0_0_18px_oklch(0.72_0.15_200/15%)]" />
+
+        {/* Second ring — counter-rotate, dotted, softer */}
+        <div className="animate-ring-spin-reverse absolute inset-[8px] rounded-full border border-dotted border-cyan/30 shadow-[0_0_12px_oklch(0.72_0.15_200/25%)]" />
+
+        {/* Third ring — slow, solid partial arc via SVG */}
+        <svg className="animate-ring-spin-mid absolute inset-[3px] h-[calc(100%-6px)] w-[calc(100%-6px)]" viewBox="0 0 200 200">
+          <defs>
+            <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="oklch(0.72 0.15 200)" stopOpacity="0.9" />
+              <stop offset="50%" stopColor="oklch(0.65 0.2 300)" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="oklch(0.72 0.15 200)" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <circle cx="100" cy="100" r="96" fill="none" stroke="url(#arcGrad)" strokeWidth="2" strokeDasharray="120 80 60 40" strokeLinecap="round" />
+        </svg>
+
+        {/* Static glow backdrop */}
+        <div className="absolute inset-[15px] rounded-full bg-[radial-gradient(circle,oklch(0.72_0.15_200/10%)_0%,transparent_70%)]" />
+
+        {/* Profile image */}
+        <div className="absolute inset-[25px] rounded-full border-[3px] border-primary/60 p-[4px] shadow-[0_0_30px_oklch(0.72_0.15_200/45%),0_0_60px_oklch(0.72_0.15_200/15%),inset_0_0_20px_oklch(0.72_0.15_200/10%)]">
           <img
             src={profileImg}
             alt="MD. Abul Khair"
             className="h-full w-full rounded-full object-cover"
           />
         </div>
+
+        {/* Corner dots — tech UI feel */}
+        <div className="absolute top-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-cyan shadow-[0_0_8px_oklch(0.72_0.15_200/80%)]" />
+        <div className="absolute bottom-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-cyan shadow-[0_0_8px_oklch(0.72_0.15_200/80%)]" />
+        <div className="absolute left-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-cyan shadow-[0_0_8px_oklch(0.72_0.15_200/80%)]" />
+        <div className="absolute right-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-cyan shadow-[0_0_8px_oklch(0.72_0.15_200/80%)]" />
       </motion.div>
 
       <motion.h1

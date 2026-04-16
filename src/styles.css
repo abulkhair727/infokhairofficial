@@ -161,6 +161,16 @@
   color: oklch(0.15 0.02 250);
 }
 
+@keyframes ring-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes ring-spin-reverse {
+  to { transform: rotate(-360deg); }
+}
+@keyframes ring-spin-mid {
+  to { transform: rotate(360deg); }
+}
+
 @keyframes spin-slow {
   to { transform: translate(-50%, -50%) rotate(360deg); }
 }
@@ -175,5 +185,8 @@
   50% { background-position: 100% 50%; }
 }
 
+.animate-ring-spin { animation: ring-spin 12s linear infinite; }
+.animate-ring-spin-reverse { animation: ring-spin-reverse 18s linear infinite; }
+.animate-ring-spin-mid { animation: ring-spin-mid 25s linear infinite; }
 .animate-spin-slow { animation: spin-slow 10s linear infinite; }
 .animate-sparkle { animation: sparkle-pulse 2.5s ease-in-out infinite; }
