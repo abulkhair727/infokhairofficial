@@ -6,7 +6,7 @@ import profileImg from "@/assets/profile.jpg";
 const phrases = ["Graphic Designer 🎨", "Web Developer 💻", "Ethical Hacker 🔐", "Creative Thinker ✨"];
 
 const socials = [
-  { icon: FaTelegramPlane, label: "Telegram", href: "https://t.me/Rx_Khan25", color: "#26A5E4" },
+  { icon: FaTelegram, label: "Telegram", href: "https://t.me/Rx_Khan25", color: "#26A5E4" },
   { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@ai_creation_2.0k", color: "#FF0000" },
   { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/abul_khair_77", color: "#E4405F" },
   { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/share/1AqyGnpzVY/", color: "#1877F2" },
