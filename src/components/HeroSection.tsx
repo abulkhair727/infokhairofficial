@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import profileImg from "@/assets/profile.jpg";
 
 const phrases = ["Graphic Designer 🎨", "Web Developer 💻", "Ethical Hacker 🔐", "Creative Thinker ✨"];
 
