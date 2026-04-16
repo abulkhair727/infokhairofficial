@@ -57,13 +57,13 @@ export default function HeroSection() {
         className="relative z-10 mx-auto mb-5 h-[210px] w-[210px]"
       >
         {/* Outer rotating ring — slow, dashed, glowing */}
-        <div className="animate-ring-spin absolute inset-0 rounded-full border-2 border-dashed border-cyan/50 shadow-[0_0_18px_oklch(0.72_0.15_200/40%),inset_0_0_18px_oklch(0.72_0.15_200/15%)]" />
+        <div className="animate-ring-spin absolute inset-[2px] rounded-full border-2 border-dashed border-cyan/50 shadow-[0_0_18px_oklch(0.72_0.15_200/40%),inset_0_0_18px_oklch(0.72_0.15_200/15%)]" />
 
         {/* Second ring — counter-rotate, dotted, softer */}
-        <div className="animate-ring-spin-reverse absolute inset-[8px] rounded-full border border-dotted border-cyan/30 shadow-[0_0_12px_oklch(0.72_0.15_200/25%)]" />
+        <div className="animate-ring-spin-reverse absolute inset-[6px] rounded-full border border-dotted border-cyan/30 shadow-[0_0_12px_oklch(0.72_0.15_200/25%)]" />
 
         {/* Third ring — slow, solid partial arc via SVG */}
-        <svg className="animate-ring-spin-mid absolute inset-[3px] h-[calc(100%-6px)] w-[calc(100%-6px)]" viewBox="0 0 200 200">
+        <svg className="animate-ring-spin-mid absolute inset-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)]" viewBox="0 0 200 200">
           <defs>
             <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="oklch(0.72 0.15 200)" stopOpacity="0.9" />
@@ -78,7 +78,7 @@ export default function HeroSection() {
         <div className="absolute inset-[15px] rounded-full bg-[radial-gradient(circle,oklch(0.72_0.15_200/10%)_0%,transparent_70%)]" />
 
         {/* Profile image */}
-        <div className="absolute inset-[25px] rounded-full border-[3px] border-primary/60 p-[4px] shadow-[0_0_30px_oklch(0.72_0.15_200/45%),0_0_60px_oklch(0.72_0.15_200/15%),inset_0_0_20px_oklch(0.72_0.15_200/10%)]">
+        <div className="absolute inset-[20px] rounded-full border-[3px] border-primary/60 p-[3px] shadow-[0_0_30px_oklch(0.72_0.15_200/45%),0_0_60px_oklch(0.72_0.15_200/15%),inset_0_0_20px_oklch(0.72_0.15_200/10%)]">
           <img
             src={profileImg}
             alt="MD. Abul Khair"
