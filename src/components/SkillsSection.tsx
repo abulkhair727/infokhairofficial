@@ -31,7 +31,8 @@ export default function SkillsSection() {
         {skills.map((s) => (
           <div
             key={s.title}
-            className="rounded-xl border border-primary/8 bg-surface p-[18px] transition-all hover:border-primary/22"
+            tabIndex={0}
+            className="rounded-xl border border-primary/8 bg-surface p-[18px] transition-all duration-200 hover:border-primary/22 cursor-pointer active:border-primary active:bg-primary/10 active:shadow-[0_0_25px_oklch(0.72_0.15_200/45%)] focus:border-primary focus:bg-primary/10 focus:shadow-[0_0_25px_oklch(0.72_0.15_200/45%)] focus:outline-none"
           >
             <div className="text-[15px] font-semibold text-primary">
               {s.icon} {s.title}
