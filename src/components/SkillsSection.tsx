@@ -40,12 +40,13 @@ export default function SkillsSection() {
             <div className="mt-1 text-xs text-muted-foreground/65">{s.desc}</div>
             <div className="mt-2.5 flex flex-wrap gap-2.5">
               {s.tags.map((t) => (
-                <span
+                <button
                   key={t}
-                  className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all cursor-default ${s.tagStyle}`}
+                  type="button"
+                  className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all duration-200 ${s.tagStyle} active:!border-primary active:!bg-primary/20 active:!text-primary active:shadow-[0_0_18px_oklch(0.72_0.15_200/55%)] focus:!border-primary focus:!bg-primary/20 focus:!text-primary focus:shadow-[0_0_18px_oklch(0.72_0.15_200/55%)] focus:outline-none`}
                 >
                   {t}
-                </span>
+                </button>
               ))}
             </div>
           </div>
