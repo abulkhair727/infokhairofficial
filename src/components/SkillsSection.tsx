@@ -31,7 +31,8 @@ export default function SkillsSection() {
         {skills.map((s) => (
           <div
             key={s.title}
-            className="rounded-xl border border-primary/8 bg-surface p-[18px] transition-all hover:border-primary/22"
+            tabIndex={0}
+            className="rounded-xl border border-primary/8 bg-surface p-[18px] transition-all duration-200 hover:border-primary/22 cursor-pointer active:border-primary active:bg-primary/10 active:shadow-[0_0_25px_oklch(0.72_0.15_200/45%)] focus:border-primary focus:bg-primary/10 focus:shadow-[0_0_25px_oklch(0.72_0.15_200/45%)] focus:outline-none"
           >
             <div className="text-[15px] font-semibold text-primary">
               {s.icon} {s.title}
@@ -39,12 +40,13 @@ export default function SkillsSection() {
             <div className="mt-1 text-xs text-muted-foreground/65">{s.desc}</div>
             <div className="mt-2.5 flex flex-wrap gap-2.5">
               {s.tags.map((t) => (
-                <span
+                <button
                   key={t}
-                  className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all cursor-default ${s.tagStyle}`}
+                  type="button"
+                  className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all duration-200 ${s.tagStyle} active:!border-primary active:!bg-primary/20 active:!text-primary active:shadow-[0_0_18px_oklch(0.72_0.15_200/55%)] focus:!border-primary focus:!bg-primary/20 focus:!text-primary focus:shadow-[0_0_18px_oklch(0.72_0.15_200/55%)] focus:outline-none`}
                 >
                   {t}
-                </span>
+                </button>
               ))}
             </div>
           </div>
