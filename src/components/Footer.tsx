@@ -15,7 +15,7 @@ export default function Footer() {
           💬 01717865806
         </a>
       </div>
-      <p className="text-xs text-muted-foreground/30">
+      <p className="whitespace-nowrap text-center text-[10px] text-muted-foreground/30 sm:text-xs">
         © 2026 All rights reserved | Designed & Developed by{" "}
         <span className="font-bold text-gold">Abul Khair</span>
       </p>
