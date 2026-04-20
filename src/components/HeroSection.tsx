@@ -10,7 +10,7 @@ const socials = [
   { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@ai_creation_2.0k", color: "#FF0000" },
   { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/abul_khair_77", color: "#E4405F" },
   { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/share/1AqyGnpzVY/", color: "#1877F2" },
-  { icon: FaXTwitter, label: "Twitter", href: "https://x.com/KhanInfo95152", color: "#000000" },
+  { icon: FaXTwitter, label: "Twitter", href: "https://x.com/KhanInfo95152", color: "#FFFFFF" },
 ];
 
 export default function HeroSection() {
@@ -123,7 +123,11 @@ export default function HeroSection() {
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full border border-foreground/12 px-4 py-2 text-sm text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary hover:shadow-[0_0_15px_oklch(0.72_0.15_200/30%)]"
             >
-              <Icon size={16} style={{ color: s.color }} />
+              {s.label === "Twitter" ? (
+                <Icon size={16} className="text-foreground" />
+              ) : (
+                <Icon size={16} style={{ color: s.color }} />
+              )}
               <span className="text-xs font-medium tracking-wide">{s.label}</span>
             </a>
           );
