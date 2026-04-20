@@ -73,18 +73,24 @@ export default function SkillsSection() {
       <div className="space-y-3.5">
         {skills.map((s) => {
           const cardActive = activeCards[s.title];
+          const isGold = s.tagGlow === "gold";
+          const activeCardCls = isGold
+            ? "border-gold bg-gold/10 shadow-[0_0_30px_oklch(0.85_0.15_85/60%)]"
+            : "border-primary bg-primary/10 shadow-[0_0_30px_oklch(0.72_0.15_200/55%)]";
+          const idleCardCls = isGold
+            ? "border-gold/10 hover:border-gold/30"
+            : "border-primary/8 hover:border-primary/22";
+          const titleCls = isGold ? "text-gold" : "text-primary";
           return (
             <button
               key={s.title}
               type="button"
               onClick={() => toggleCard(s.title)}
               className={`block w-full text-left rounded-xl border bg-surface p-[18px] transition-all duration-300 cursor-pointer focus:outline-none ${
-                cardActive
-                  ? "border-primary bg-primary/10 shadow-[0_0_30px_oklch(0.72_0.15_200/55%)]"
-                  : "border-primary/8 hover:border-primary/22"
+                cardActive ? activeCardCls : idleCardCls
               }`}
             >
-              <div className="text-[15px] font-semibold text-primary">
+              <div className={`text-[15px] font-semibold ${titleCls}`}>
                 {s.icon} {s.title}
               </div>
               <div className="mt-1 text-xs text-muted-foreground/65">{s.desc}</div>
