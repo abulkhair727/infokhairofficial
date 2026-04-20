@@ -10,7 +10,7 @@ const socials = [
   { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@ai_creation_2.0k", color: "#FF0000" },
   { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/abul_khair_77", color: "#E4405F" },
   { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/share/1AqyGnpzVY/", color: "#1877F2" },
-  { icon: FaXTwitter, label: "Twitter", href: "https://x.com/KhanInfo95152", color: "#000000" },
+  { icon: FaXTwitter, label: "Twitter", href: "https://x.com/KhanInfo95152", color: "#FFFFFF" },
 ];
 
 export default function HeroSection() {
