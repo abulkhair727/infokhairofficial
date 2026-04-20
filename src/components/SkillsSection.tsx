@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CardSection from "./CardSection";
 
-type GlowColor = "blue" | "green" | "purple";
+type GlowColor = "blue" | "green" | "purple" | "gold";
 
 const skills: {
   icon: string;
@@ -31,6 +31,13 @@ const skills: {
     tags: ["Network Security", "Kali Linux", "Penetration Testing", "OSINT", "Social Engineering", "CTF Challenges"],
     tagGlow: "purple",
   },
+  {
+    icon: "🎬",
+    title: "Video Editing",
+    desc: "Learning video creation and post-production.",
+    tags: ["After Effects", "Motion Graphics", "CapCut Editing", "YouTube Video Editing", "Cinematic Editing"],
+    tagGlow: "gold",
+  },
 ];
 
 const glowStyles: Record<GlowColor, { base: string; active: string }> = {
@@ -45,6 +52,10 @@ const glowStyles: Record<GlowColor, { base: string; active: string }> = {
   purple: {
     base: "border-purple-accent/50 bg-purple-accent/8 text-purple-accent",
     active: "!border-purple-accent !bg-purple-accent/25 !text-purple-accent shadow-[0_0_20px_oklch(0.65_0.22_300/65%)]",
+  },
+  gold: {
+    base: "border-gold/50 bg-gold/8 text-gold",
+    active: "!border-gold !bg-gold/25 !text-gold shadow-[0_0_20px_oklch(0.85_0.15_85/70%)]",
   },
 };
 
