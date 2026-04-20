@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CardSection from "./CardSection";
 
-type GlowColor = "blue" | "green" | "purple";
+type GlowColor = "blue" | "green" | "purple" | "gold";
 
 const skills: {
   icon: string;
@@ -31,6 +31,13 @@ const skills: {
     tags: ["Network Security", "Kali Linux", "Penetration Testing", "OSINT", "Social Engineering", "CTF Challenges"],
     tagGlow: "purple",
   },
+  {
+    icon: "🎬",
+    title: "Video Editing",
+    desc: "Learning video creation and post-production.",
+    tags: ["After Effects", "Motion Graphics", "CapCut Editing", "YouTube Video Editing", "Cinematic Editing"],
+    tagGlow: "gold",
+  },
 ];
 
 const glowStyles: Record<GlowColor, { base: string; active: string }> = {
@@ -45,6 +52,10 @@ const glowStyles: Record<GlowColor, { base: string; active: string }> = {
   purple: {
     base: "border-purple-accent/50 bg-purple-accent/8 text-purple-accent",
     active: "!border-purple-accent !bg-purple-accent/25 !text-purple-accent shadow-[0_0_20px_oklch(0.65_0.22_300/65%)]",
+  },
+  gold: {
+    base: "border-gold/50 bg-gold/8 text-gold",
+    active: "!border-gold !bg-gold/25 !text-gold shadow-[0_0_20px_oklch(0.85_0.15_85/70%)]",
   },
 };
 
@@ -62,18 +73,24 @@ export default function SkillsSection() {
       <div className="space-y-3.5">
         {skills.map((s) => {
           const cardActive = activeCards[s.title];
+          const isGold = s.tagGlow === "gold";
+          const activeCardCls = isGold
+            ? "border-gold bg-gold/10 shadow-[0_0_30px_oklch(0.85_0.15_85/60%)]"
+            : "border-primary bg-primary/10 shadow-[0_0_30px_oklch(0.72_0.15_200/55%)]";
+          const idleCardCls = isGold
+            ? "border-gold/10 hover:border-gold/30"
+            : "border-primary/8 hover:border-primary/22";
+          const titleCls = isGold ? "text-gold" : "text-primary";
           return (
             <button
               key={s.title}
               type="button"
               onClick={() => toggleCard(s.title)}
               className={`block w-full text-left rounded-xl border bg-surface p-[18px] transition-all duration-300 cursor-pointer focus:outline-none ${
-                cardActive
-                  ? "border-primary bg-primary/10 shadow-[0_0_30px_oklch(0.72_0.15_200/55%)]"
-                  : "border-primary/8 hover:border-primary/22"
+                cardActive ? activeCardCls : idleCardCls
               }`}
             >
-              <div className="text-[15px] font-semibold text-primary">
+              <div className={`text-[15px] font-semibold ${titleCls}`}>
                 {s.icon} {s.title}
               </div>
               <div className="mt-1 text-xs text-muted-foreground/65">{s.desc}</div>
