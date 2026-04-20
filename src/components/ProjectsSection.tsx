@@ -23,6 +23,13 @@ const projects = [
     type: "Design",
     gradient: "from-amber-500 to-pink-500",
   },
+  {
+    icon: "🤖",
+    title: "Artificial Intelligence",
+    desc: "AI-powered solutions and smart automation projects built with modern tools like ChatGPT, image generation, and intelligent chatbots for creative and technical innovation.",
+    type: "Design Through AI",
+    gradient: "from-primary to-purple-accent",
+  },
 ];
 
 export default function ProjectsSection() {
